@@ -8,7 +8,6 @@ ProductService::ProductService(IDatabase * database) : db(database) {
 
 Product* createProduct(ProductFormData *productData) {
     auto product = new Product(productData->name);
-    product->type = ("Unknown");
 
     if (productData->name.empty())
     {
@@ -19,6 +18,8 @@ Product* createProduct(ProductFormData *productData) {
     {
         return product;
     }
+
+    product->type = ("Unknown");
 
     if ("Eyeshadow" == (productData->type) || "Mascara" == (productData->type))
     {
@@ -85,35 +86,35 @@ Product* createProduct(ProductFormData *productData) {
 
 }
 Response validate(const Product* const product, ProductFormData *productData) {
-    if (productData->name.empty())
+    if (product->name.empty())
     {
         return Response(0, Response::MISSING_DATA_ERROR, "Missing Name");
     }
 
-    if (productData->type.empty())
+    if (product->type.empty())
     {
         return Response(0, Response::MISSING_DATA_ERROR, "Missing Type");
     }
 
-    if ("Lipstick" == (productData->type))
+    if ("Lipstick" == (product->type))
     {
         if (productData->suggestedPrice > 20)
         {
-            if (productData->weight > 0 && productData->weight < 10)
+            if (product->weight > 0 && product->weight < 10)
             {
                 return Response(0, Response::FAILED_QUALITY_CHECK, "Error - failed quality check for Queen Range");
             }
         }
     }
 
-    if (productData->weight < 0)
+    if (product->weight < 0)
     {
         return Response(0, Response::WEIGHT_ERROR, "Weight error");
     }
 
-    if ("Blusher" == (productData->type) || "Foundation" == (productData->type))
+    if ("Blusher" == (product->type) || "Foundation" == (product->type))
     {
-        if ("Blusher" == (productData->type) && productData->weight > 10)
+        if ("Blusher" == (product->type) && product->weight > 10)
         {
             return Response(0, Response::WEIGHT_ERROR, "Error - weight too high");
         }
@@ -126,7 +127,7 @@ Response validate(const Product* const product, ProductFormData *productData) {
 
     if ("Unknown" == (product->type))
     {
-        return Response(0, Response::FAILED_QUALITY_CHECK, "Unknown product type " + productData->type);
+        return Response(0, Response::FAILED_QUALITY_CHECK, "Unknown product type " + product->type);
     }
 
     return Response(0, Response::OK, "Product Successfully Added");
