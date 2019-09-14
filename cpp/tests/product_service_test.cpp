@@ -24,11 +24,11 @@ TEST_CASE ("test_validate_and_add") {
 }
 
 string doValidateAndAdd(const string &name, const string &type, float weight, float price, bool packagingRecyclable) {
-    auto productData = new ProductFormData(name, type, weight, price, packagingRecyclable);
+    ProductFormData productData(name, type, weight, price, packagingRecyclable);
     FakeDatabase db{};
     ProductService sut(&db);
 
-    Response response = sut.validateAndAdd(productData);
+    Response response = sut.validateAndAdd(&productData);
 
     std::string responseAndProduct;
     responseAndProduct.append(response.to_string());
