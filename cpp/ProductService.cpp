@@ -85,49 +85,49 @@ Product* createProduct(ProductFormData *productData) {
     return product;
 
 }
-Response validate(const Product* const product, float suggestedPrice, bool packagingRecyclable) {
-    if (product->name.empty())
+Response validate(const Product& product, float suggestedPrice, bool packagingRecyclable) {
+    if (product.name.empty())
     {
         return Response(0, Response::MISSING_DATA_ERROR, "Missing Name");
     }
 
-    if (product->type.empty())
+    if (product.type.empty())
     {
         return Response(0, Response::MISSING_DATA_ERROR, "Missing Type");
     }
 
-    if ("Lipstick" == (product->type))
+    if ("Lipstick" == (product.type))
     {
         if (suggestedPrice > 20)
         {
-            if (product->weight > 0 && product->weight < 10)
+            if (product.weight > 0 && product.weight < 10)
             {
                 return Response(0, Response::FAILED_QUALITY_CHECK, "Error - failed quality check for Queen Range");
             }
         }
     }
 
-    if (product->weight < 0)
+    if (product.weight < 0)
     {
         return Response(0, Response::WEIGHT_ERROR, "Weight error");
     }
 
-    if ("Blusher" == (product->type) || "Foundation" == (product->type))
+    if ("Blusher" == (product.type) || "Foundation" == (product.type))
     {
-        if ("Blusher" == (product->type) && product->weight > 10)
+        if ("Blusher" == (product.type) && product.weight > 10)
         {
             return Response(0, Response::WEIGHT_ERROR, "Error - weight too high");
         }
     }
 
-    if (!packagingRecyclable && product->range == ProductRange::QUEEN)
+    if (!packagingRecyclable && product.range == ProductRange::QUEEN)
     {
         return Response(0, Response::FAILED_QUALITY_CHECK, "Error - failed quality check for Queen Range");
     }
 
-    if ("Unknown" == (product->type))
+    if ("Unknown" == (product.type))
     {
-        return Response(0, Response::FAILED_QUALITY_CHECK, "Unknown product type " + product->type);
+        return Response(0, Response::FAILED_QUALITY_CHECK, "Unknown product type " + product.type);
     }
 
     return Response(0, Response::OK, "Product Successfully Added");
@@ -135,7 +135,7 @@ Response validate(const Product* const product, float suggestedPrice, bool packa
 }
 Response ProductService::validateAndAdd(ProductFormData *productData) {
     auto product = createProduct(productData);
-    auto response = validate(product, productData->suggestedPrice, productData->packagingRecyclable);
+    auto response = validate(*product, productData->suggestedPrice, productData->packagingRecyclable);
     if ( response.statusCode == Response::OK)
     {
         response.productId = db->storeProduct(product);
