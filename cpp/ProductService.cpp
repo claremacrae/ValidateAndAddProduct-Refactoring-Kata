@@ -128,8 +128,8 @@ Response validate(const Product& product, float suggestedPrice, bool packagingRe
     }
 
     return Response(0, Response::OK, "Product Successfully Added");
-
 }
+
 Response ProductService::validateAndAdd(ProductFormData *productData) {
     auto product = createProduct(productData);
     auto response = validate(*product, productData->suggestedPrice, productData->packagingRecyclable);
