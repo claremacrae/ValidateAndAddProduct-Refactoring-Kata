@@ -32,9 +32,9 @@ string doValidateAndAdd(const string &name, const string &type, float weight, fl
 
     std::string responseAndProduct;
     responseAndProduct.append(response.to_string());
-    if (db.product) {
+    if (db.product_) {
         responseAndProduct.append(" ");
-        responseAndProduct.append(db.product->to_string());
+        responseAndProduct.append(db.product_->to_string());
     }
     return responseAndProduct;
 }

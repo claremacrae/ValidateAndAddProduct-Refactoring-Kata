@@ -10,7 +10,7 @@ public:
     FakeDatabase() = default;
 
     int storeProduct(Product *aProduct) override;
-    Product *product{};
+    Product *product_{};
 };
 
 
