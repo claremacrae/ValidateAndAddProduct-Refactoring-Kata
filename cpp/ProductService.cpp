@@ -6,19 +6,19 @@ ProductService::ProductService(IDatabase * database) : db(database) {
 
 }
 
-Response ProductService::validateAndAdd(ProductFormData *productData) {
+Product* createProduct(ProductFormData *productData) {
+    auto product = new Product(productData->name);
+    product->type = ("Unknown");
+
     if (productData->name.empty())
     {
-        return Response(0, Response::MISSING_DATA_ERROR, "Missing Name");
+        return product;
     }
 
     if (productData->type.empty())
     {
-        return Response(0, Response::MISSING_DATA_ERROR, "Missing Type");
+        return product;
     }
-
-    auto product = new Product(productData->name);
-    product->type = ("Unknown");
 
     if ("Eyeshadow" == (productData->type) || "Mascara" == (productData->type))
     {
@@ -55,11 +55,6 @@ Response ProductService::validateAndAdd(ProductFormData *productData) {
 
         if (productData->suggestedPrice > 20)
         {
-            if (productData->weight > 0 && productData->weight < 10)
-            {
-                return Response(0, Response::FAILED_QUALITY_CHECK, "Error - failed quality check for Queen Range");
-            }
-
             product->range = (ProductRange::QUEEN);
         }
     }
@@ -78,17 +73,46 @@ Response ProductService::validateAndAdd(ProductFormData *productData) {
         }
     }
 
-    if (productData->weight < 0)
-    {
-        return Response(0, Response::WEIGHT_ERROR, "Weight error");
-    }
-
     product->weight = (productData->weight);
 
     if ("Blusher" == (productData->type) || "Foundation" == (productData->type))
     {
         product->type = (productData->type);
         product->family = (ProductFamily::SKIN);
+    }
+
+    return product;
+
+}
+Response validate(const Product* const product, ProductFormData *productData) {
+    if (productData->name.empty())
+    {
+        return Response(0, Response::MISSING_DATA_ERROR, "Missing Name");
+    }
+
+    if (productData->type.empty())
+    {
+        return Response(0, Response::MISSING_DATA_ERROR, "Missing Type");
+    }
+
+    if ("Lipstick" == (productData->type))
+    {
+        if (productData->suggestedPrice > 20)
+        {
+            if (productData->weight > 0 && productData->weight < 10)
+            {
+                return Response(0, Response::FAILED_QUALITY_CHECK, "Error - failed quality check for Queen Range");
+            }
+        }
+    }
+
+    if (productData->weight < 0)
+    {
+        return Response(0, Response::WEIGHT_ERROR, "Weight error");
+    }
+
+    if ("Blusher" == (productData->type) || "Foundation" == (productData->type))
+    {
         if ("Blusher" == (productData->type) && productData->weight > 10)
         {
             return Response(0, Response::WEIGHT_ERROR, "Error - weight too high");
@@ -105,6 +129,16 @@ Response ProductService::validateAndAdd(ProductFormData *productData) {
         return Response(0, Response::FAILED_QUALITY_CHECK, "Unknown product type " + productData->type);
     }
 
-    return Response(db->storeProduct(product), Response::OK, "Product Successfully Added");
+    return Response(0, Response::OK, "Product Successfully Added");
 
+}
+Response ProductService::validateAndAdd(ProductFormData *productData) {
+    auto product = createProduct(productData);
+    auto response = validate(product, productData);
+    if ( response.statusCode == Response::OK)
+    {
+        response.productId = db->storeProduct(product);
+    }
+
+    return response;
 }
