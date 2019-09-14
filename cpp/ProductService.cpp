@@ -9,12 +9,12 @@ ProductService::ProductService(IDatabase * database) : db(database) {
 Response ProductService::validateAndAdd(ProductFormData *productData) {
     if (productData->name.empty())
     {
-        return Response(0, -2, "Missing Name");
+        return Response(0, Response::MISSING_DATA_ERROR, "Missing Name");
     }
 
     if (productData->type.empty())
     {
-        return Response(0, -2, "Missing Type");
+        return Response(0, Response::MISSING_DATA_ERROR, "Missing Type");
     }
 
     auto product = new Product(productData->name);
@@ -57,7 +57,7 @@ Response ProductService::validateAndAdd(ProductFormData *productData) {
         {
             if (productData->weight > 0 && productData->weight < 10)
             {
-                return Response(0, -1, "Error - failed quality check for Queen Range");
+                return Response(0, Response::FAILED_QUALITY_CHECK, "Error - failed quality check for Queen Range");
             }
 
             product->range = (ProductRange::QUEEN);
@@ -80,7 +80,7 @@ Response ProductService::validateAndAdd(ProductFormData *productData) {
 
     if (productData->weight < 0)
     {
-        return Response(0, -3, "Weight error");
+        return Response(0, Response::WEIGHT_ERROR, "Weight error");
     }
 
     product->weight = (productData->weight);
@@ -91,20 +91,20 @@ Response ProductService::validateAndAdd(ProductFormData *productData) {
         product->family = (ProductFamily::SKIN);
         if ("Blusher" == (productData->type) && productData->weight > 10)
         {
-            return Response(0, -3, "Error - weight too high");
+            return Response(0, Response::WEIGHT_ERROR, "Error - weight too high");
         }
     }
 
     if (!productData->packagingRecyclable && product->range == ProductRange::QUEEN)
     {
-        return Response(0, -1, "Error - failed quality check for Queen Range");
+        return Response(0, Response::FAILED_QUALITY_CHECK, "Error - failed quality check for Queen Range");
     }
 
     if ("Unknown" == (product->type))
     {
-        return Response(0, -1, "Unknown product type " + productData->type);
+        return Response(0, Response::FAILED_QUALITY_CHECK, "Unknown product type " + productData->type);
     }
 
-    return Response(db->storeProduct(product), 0, "Product Successfully Added");
+    return Response(db->storeProduct(product), Response::OK, "Product Successfully Added");
 
 }

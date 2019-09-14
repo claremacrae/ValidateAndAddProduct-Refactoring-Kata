@@ -2,7 +2,7 @@
 
 #include <utility>
 
-Response::Response(int productId, int statusCode, std::string message) : productId(productId), statusCode(statusCode), message(std::move(message)) {
+Response::Response(int productId, StatusCode statusCode, std::string message) : productId(productId), statusCode(statusCode), message(std::move(message)) {
 
 }
 

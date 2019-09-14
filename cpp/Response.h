@@ -5,9 +5,16 @@
 
 class Response {
 public:
-    Response(int productId, int statusCode, std::string message);
+    enum StatusCode
+    {
+        WEIGHT_ERROR = -3,
+        MISSING_DATA_ERROR = -2,
+        FAILED_QUALITY_CHECK = -1,
+        OK = 0
+    };
+    Response(int productId, StatusCode statusCode, std::string message);
     int productId;
-    int statusCode;
+    StatusCode statusCode;
     std::string message;
 
     std::string to_string();
