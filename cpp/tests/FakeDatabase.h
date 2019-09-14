@@ -10,6 +10,8 @@ public:
     FakeDatabase() = default;
 
     int storeProduct(Product *aProduct) override;
+    Product* product();
+private:
     Product *product_{};
 };
 
