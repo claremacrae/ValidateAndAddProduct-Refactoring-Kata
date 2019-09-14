@@ -85,7 +85,7 @@ Product* createProduct(ProductFormData *productData) {
     return product;
 
 }
-Response validate(const Product* const product, ProductFormData *productData) {
+Response validate(const Product* const product, float suggestedPrice, bool packagingRecyclable) {
     if (product->name.empty())
     {
         return Response(0, Response::MISSING_DATA_ERROR, "Missing Name");
@@ -98,7 +98,7 @@ Response validate(const Product* const product, ProductFormData *productData) {
 
     if ("Lipstick" == (product->type))
     {
-        if (productData->suggestedPrice > 20)
+        if (suggestedPrice > 20)
         {
             if (product->weight > 0 && product->weight < 10)
             {
@@ -120,7 +120,7 @@ Response validate(const Product* const product, ProductFormData *productData) {
         }
     }
 
-    if (!productData->packagingRecyclable && product->range == ProductRange::QUEEN)
+    if (!packagingRecyclable && product->range == ProductRange::QUEEN)
     {
         return Response(0, Response::FAILED_QUALITY_CHECK, "Error - failed quality check for Queen Range");
     }
@@ -135,7 +135,7 @@ Response validate(const Product* const product, ProductFormData *productData) {
 }
 Response ProductService::validateAndAdd(ProductFormData *productData) {
     auto product = createProduct(productData);
-    auto response = validate(product, productData);
+    auto response = validate(product, productData->suggestedPrice, productData->packagingRecyclable);
     if ( response.statusCode == Response::OK)
     {
         response.productId = db->storeProduct(product);
