@@ -112,12 +112,9 @@ Response validate(const Product& product, float suggestedPrice, bool packagingRe
         return Response(0, Response::WEIGHT_ERROR, "Weight error");
     }
 
-    if ("Blusher" == (product.type) || "Foundation" == (product.type))
+    if ("Blusher" == (product.type) && product.weight > 10)
     {
-        if ("Blusher" == (product.type) && product.weight > 10)
-        {
-            return Response(0, Response::WEIGHT_ERROR, "Error - weight too high");
-        }
+        return Response(0, Response::WEIGHT_ERROR, "Error - weight too high");
     }
 
     if (!packagingRecyclable && product.range == ProductRange::QUEEN)
