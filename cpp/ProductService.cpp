@@ -72,11 +72,6 @@ Product* createProduct(ProductFormData *productData) {
         {
             product->range = (ProductRange::QUEEN);
         }
-
-        if (productData->suggestedPrice > 20)
-        {
-            product->range = (ProductRange::QUEEN);
-        }
     }
 
     if ("Mascara" == (productData->type))
