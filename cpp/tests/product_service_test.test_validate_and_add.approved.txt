@@ -46,6 +46,30 @@
 (, Lipstick, 11, 21, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
 (, Lipstick, 11, 26, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
 (, Lipstick, 11, 26, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, -1, 10, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, -1, 10, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, -1, 11, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, -1, 11, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, -1, 21, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, -1, 21, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, -1, 26, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, -1, 26, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 5, 10, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 5, 10, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 5, 11, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 5, 11, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 5, 21, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 5, 21, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 5, 26, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 5, 26, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 11, 10, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 11, 10, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 11, 11, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 11, 11, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 11, 21, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 11, 21, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 11, 26, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
+(, Lip gloss, 11, 26, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
 (, Eyeshadow, -1, 10, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
 (, Eyeshadow, -1, 10, 1) => Response{productId=0, statusCode=-2, message='Missing Name'}
 (, Eyeshadow, -1, 11, 0) => Response{productId=0, statusCode=-2, message='Missing Name'}
@@ -214,6 +238,30 @@
 (Sample product, Lipstick, 11, 21, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lipstick', weight=11.000000, family=1, range=0}
 (Sample product, Lipstick, 11, 26, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
 (Sample product, Lipstick, 11, 26, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lipstick', weight=11.000000, family=1, range=0}
+(Sample product, Lip gloss, -1, 10, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample product, Lip gloss, -1, 10, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample product, Lip gloss, -1, 11, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample product, Lip gloss, -1, 11, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample product, Lip gloss, -1, 21, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample product, Lip gloss, -1, 21, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample product, Lip gloss, -1, 26, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample product, Lip gloss, -1, 26, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample product, Lip gloss, 5, 10, 0) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=5.000000, family=1, range=1}
+(Sample product, Lip gloss, 5, 10, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=5.000000, family=1, range=2}
+(Sample product, Lip gloss, 5, 11, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample product, Lip gloss, 5, 11, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=5.000000, family=1, range=0}
+(Sample product, Lip gloss, 5, 21, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample product, Lip gloss, 5, 21, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=5.000000, family=1, range=0}
+(Sample product, Lip gloss, 5, 26, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample product, Lip gloss, 5, 26, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=5.000000, family=1, range=0}
+(Sample product, Lip gloss, 11, 10, 0) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=11.000000, family=1, range=1}
+(Sample product, Lip gloss, 11, 10, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=11.000000, family=1, range=2}
+(Sample product, Lip gloss, 11, 11, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample product, Lip gloss, 11, 11, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=11.000000, family=1, range=0}
+(Sample product, Lip gloss, 11, 21, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample product, Lip gloss, 11, 21, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=11.000000, family=1, range=0}
+(Sample product, Lip gloss, 11, 26, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample product, Lip gloss, 11, 26, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample product', type='Lip gloss', weight=11.000000, family=1, range=0}
 (Sample product, Eyeshadow, -1, 10, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
 (Sample product, Eyeshadow, -1, 10, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
 (Sample product, Eyeshadow, -1, 11, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
@@ -382,6 +430,30 @@
 (Sample Queen Product, Lipstick, 11, 21, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lipstick', weight=11.000000, family=1, range=0}
 (Sample Queen Product, Lipstick, 11, 26, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
 (Sample Queen Product, Lipstick, 11, 26, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lipstick', weight=11.000000, family=1, range=0}
+(Sample Queen Product, Lip gloss, -1, 10, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample Queen Product, Lip gloss, -1, 10, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample Queen Product, Lip gloss, -1, 11, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample Queen Product, Lip gloss, -1, 11, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample Queen Product, Lip gloss, -1, 21, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample Queen Product, Lip gloss, -1, 21, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample Queen Product, Lip gloss, -1, 26, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample Queen Product, Lip gloss, -1, 26, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
+(Sample Queen Product, Lip gloss, 5, 10, 0) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=5.000000, family=1, range=1}
+(Sample Queen Product, Lip gloss, 5, 10, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=5.000000, family=1, range=2}
+(Sample Queen Product, Lip gloss, 5, 11, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample Queen Product, Lip gloss, 5, 11, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=5.000000, family=1, range=0}
+(Sample Queen Product, Lip gloss, 5, 21, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample Queen Product, Lip gloss, 5, 21, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=5.000000, family=1, range=0}
+(Sample Queen Product, Lip gloss, 5, 26, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample Queen Product, Lip gloss, 5, 26, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=5.000000, family=1, range=0}
+(Sample Queen Product, Lip gloss, 11, 10, 0) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=11.000000, family=1, range=1}
+(Sample Queen Product, Lip gloss, 11, 10, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=11.000000, family=1, range=2}
+(Sample Queen Product, Lip gloss, 11, 11, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample Queen Product, Lip gloss, 11, 11, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=11.000000, family=1, range=0}
+(Sample Queen Product, Lip gloss, 11, 21, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample Queen Product, Lip gloss, 11, 21, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=11.000000, family=1, range=0}
+(Sample Queen Product, Lip gloss, 11, 26, 0) => Response{productId=0, statusCode=-1, message='Error - failed quality check for Queen Range'}
+(Sample Queen Product, Lip gloss, 11, 26, 1) => Response{productId=0, statusCode=0, message='Product Successfully Added'} Product{name='Sample Queen Product', type='Lip gloss', weight=11.000000, family=1, range=0}
 (Sample Queen Product, Eyeshadow, -1, 10, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
 (Sample Queen Product, Eyeshadow, -1, 10, 1) => Response{productId=0, statusCode=-3, message='Weight error'}
 (Sample Queen Product, Eyeshadow, -1, 11, 0) => Response{productId=0, statusCode=-3, message='Weight error'}
