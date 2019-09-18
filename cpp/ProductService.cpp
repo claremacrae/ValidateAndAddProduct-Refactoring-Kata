@@ -95,7 +95,7 @@ Product* createProduct(ProductFormData *productData) {
     return product;
 
 }
-Response validate(const Product& product, float suggestedPrice, bool packagingRecyclable) {
+Response validateProduct(const Product& product, float suggestedPrice, bool packagingRecyclable) {
     if (product.name.empty())
     {
         return Response(0, Response::MISSING_DATA_ERROR, "Missing Name");
@@ -154,7 +154,7 @@ Response validate(const Product& product, float suggestedPrice, bool packagingRe
 
 Response ProductService::validateAndAdd(ProductFormData *productData) {
     auto product = createProduct(productData);
-    auto response = validate(*product, productData->suggestedPrice, productData->packagingRecyclable);
+    auto response = validateProduct(*product, productData->suggestedPrice, productData->packagingRecyclable);
     if ( response.statusCode == Response::OK)
     {
         response.productId = db->storeProduct(product);
