@@ -27,21 +27,21 @@ Product* createProduct(ProductFormData *productData) {
         product->family = ProductFamily::EYES;
         if ("Eyeshadow" == (productData->type) && product->name.find("Queen") != std::string::npos)
         {
-            product->range = (ProductRange::QUEEN);
+            product->range = (QUEEN);
         }
     }
 
-    product->range = (ProductRange::BUDGET);
+    product->range = (BUDGET);
     if (productData->packagingRecyclable)
     {
-        product->range = (ProductRange::PROFESSIONAL);
+        product->range = (PROFESSIONAL);
     }
 
     if ("Foundation" == (productData->type))
     {
         if (productData->suggestedPrice > 10)
         {
-            product->range = (ProductRange::PROFESSIONAL);
+            product->range = (PROFESSIONAL);
         }
     }
 
@@ -51,12 +51,12 @@ Product* createProduct(ProductFormData *productData) {
         product->family = (ProductFamily::LIPS);
         if (productData->suggestedPrice > 10)
         {
-            product->range = (ProductRange::PROFESSIONAL);
+            product->range = (PROFESSIONAL);
         }
 
         if (productData->suggestedPrice > 20)
         {
-            product->range = (ProductRange::QUEEN);
+            product->range = (QUEEN);
         }
     }
 
@@ -66,7 +66,7 @@ Product* createProduct(ProductFormData *productData) {
         product->family = (ProductFamily::LIPS);
         if (productData->suggestedPrice > 10)
         {
-            product->range = (ProductRange::QUEEN);
+            product->range = (QUEEN);
         }
     }
 
@@ -75,12 +75,12 @@ Product* createProduct(ProductFormData *productData) {
         product->family = (ProductFamily::LASHES);
         if (productData->suggestedPrice > 15)
         {
-            product->range = (ProductRange::PROFESSIONAL);
+            product->range = (PROFESSIONAL);
         }
 
         if (productData->suggestedPrice > 25 && productData->packagingRecyclable)
         {
-            product->range = (ProductRange::QUEEN);
+            product->range = (QUEEN);
         }
     }
 
@@ -139,7 +139,7 @@ Response validateProduct(const Product& product, float suggestedPrice, bool pack
         return Response(0, Response::WEIGHT_ERROR, "Error - weight too high");
     }
 
-    if (!packagingRecyclable && product.range == ProductRange::QUEEN)
+    if (!packagingRecyclable && product.range == QUEEN)
     {
         return Response(0, Response::FAILED_QUALITY_CHECK, "Error - failed quality check for Queen Range");
     }
