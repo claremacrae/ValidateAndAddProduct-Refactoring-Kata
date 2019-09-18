@@ -60,10 +60,6 @@ Product* createProduct(ProductFormData *productData) {
         }
     }
 
-    // The reason for the refactoring is that you need to add a new type of product - Lip gloss.
-    // It should behave the same as the 'Lipstick' type with a small difference -
-    // if the price is greater than 10 it should be put in the 'Queen' range instead of the 'Professional' range.
-    // If the weight is over 20 then you should return an error.
     if ("Lip gloss" == (productData->type))
     {
         product->type = (productData->type);
@@ -121,10 +117,6 @@ Response validate(const Product& product, float suggestedPrice, bool packagingRe
         }
     }
 
-    // The reason for the refactoring is that you need to add a new type of product - Lip gloss.
-    // It should behave the same as the 'Lipstick' type with a small difference -
-    // if the price is greater than 10 it should be put in the 'Queen' range instead of the 'Professional' range.
-    // If the weight is over 20 then you should return an error.
     if ("Lip gloss" == (product.type))
     {
         if (suggestedPrice > 20)
