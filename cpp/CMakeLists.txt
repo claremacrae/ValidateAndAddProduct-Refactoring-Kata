@@ -3,4 +3,5 @@ project(validate_and_add_product_refactoring_kata)
 
 set(CMAKE_CXX_STANDARD 11)
 
+enable_testing()
 add_subdirectory(tests)

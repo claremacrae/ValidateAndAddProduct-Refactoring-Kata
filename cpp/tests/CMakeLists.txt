@@ -15,5 +15,4 @@ target_include_directories(
         PUBLIC
         ../third_party ..)
 
-enable_testing()
 add_test(NAME ${PROJECT_NAME}_test COMMAND ${PROJECT_NAME})
